@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+    page_title="Buscador de Mesas Corporativo",
+    page_icon="logo.png", # Puedes poner un link a un favicon .png si prefieres
+    layout="centered"
 # Título de la web
 st.title("🎫 Localizador de Mesas")
 st.write("Ingresa tu carnet para saber en qué mesa estás.")
@@ -36,3 +40,4 @@ try:
 except Exception as e:
 
     st.error(f"Error al cargar la base de datos: {e}")
+
