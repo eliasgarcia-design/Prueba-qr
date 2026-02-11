@@ -9,7 +9,7 @@ st.write("Ingresa tu carnet para saber en qué mesa estás.")
 @st.cache_data
 def cargar_datos():
     # Asegúrate de que el nombre coincida con tu archivo Excel
-    df = pd.read_excel('datos.xlsx')
+    df = pd.read_excel('prueba.xlsx')
     # Limpiamos la columna Codigo
     df['Codigo'] = df['Codigo'].astype(str).str.strip().str.replace('.0', '', regex=False)
     return df
@@ -34,4 +34,5 @@ try:
             st.error("⚠️ Carnet no encontrado. Revisa el número.")
 
 except Exception as e:
+
     st.error(f"Error al cargar la base de datos: {e}")
