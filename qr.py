@@ -65,13 +65,14 @@ try:
         if not resultado.empty:
             nombre = resultado.iloc[0]['Persona']
             mesa = resultado.iloc[0]['Mesa']
-            st.success(f"📍 Hola **{nombre}**, tu mesa asignada es la: **{mesa}**")
+            st.success(f"Hola **{nombre}**, tu mesa asignada es la: **{mesa}**")
         else:
             st.error("⚠️ Carnet no encontrado. Revisa el número.")
 
 except Exception as e:
 
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
