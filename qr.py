@@ -1,6 +1,11 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+    page_title="Buscador de Mesas Corporativo",
+    page_icon="logo.png", # Puedes poner un link a un favicon .png si prefieres
+    layout="centered")
+
 st.markdown("""
     <style>
     /* Cambiar la fuente general a una más corporativa */
@@ -30,15 +35,11 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.set_page_config(
-    page_title="Buscador de Mesas Corporativo",
-    page_icon="logo.png", # Puedes poner un link a un favicon .png si prefieres
-    layout="centered")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image("logo.png", use_column_width=True)
 # Título de la web
-st.title("🎫 Localizador de Mesas")
+st.title("Localizador de Mesas")
 st.write("Ingresa tu carnet para saber en qué mesa estás.")
 
 # Función para cargar y limpiar datos
@@ -71,6 +72,7 @@ try:
 except Exception as e:
 
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
