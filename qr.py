@@ -3,7 +3,7 @@ import pandas as pd
 
 st.set_page_config(
     page_title="Buscador de Mesas Corporativo",
-    page_icon="logo.png", # Puedes poner un link a un favicon .png si prefieres
+    page_icon="bluelogo.png", # Puedes poner un link a un favicon .png si prefieres
     layout="centered")
 
 st.markdown("""
@@ -72,6 +72,7 @@ try:
 except Exception as e:
 
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
