@@ -54,8 +54,8 @@ def cargar_datos():
 # Cargar el Excel
 try:
     df = cargar_datos()
-
-   nombre = resultado.iloc[0]['Persona']
+    
+    nombre = resultado.iloc[0]['Persona']
     mesa = resultado.iloc[0]['Mesa']
     
     # 1. Tu lista de códigos (ajústalos aquí)
@@ -77,6 +77,7 @@ try:
 except Exception as e:
 
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
