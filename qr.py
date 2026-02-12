@@ -33,6 +33,8 @@ def set_background(fondopagina):
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
+set_background('fondo.jpg')
+
 st.markdown("""
     <style>
     /* Cambiar la fuente general a una más corporativa */
@@ -108,6 +110,7 @@ try:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
