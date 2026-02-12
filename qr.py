@@ -54,6 +54,13 @@ def cargar_datos():
 # Cargar el Excel
 try:
     df = cargar_datos()
+
+    id_empleado = st.text_input("Ingresa tu ID de Empleado")
+
+# 2. Solo hacemos la búsqueda si el usuario escribió algo
+if id_empleado:
+    # Aquí es donde se crea la variable 'resultado'
+    resultado = df[df['Codigo'].astype(str) == id_empleado]
     
     nombre = resultado.iloc[0]['Persona']
     mesa = resultado.iloc[0]['Mesa']
@@ -77,6 +84,7 @@ try:
 except Exception as e:
 
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
