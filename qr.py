@@ -75,24 +75,24 @@ st.write("Ingresa tu ID de Empleado para saber en qué mesa estás.")
 @st.cache_data
 def cargar_datos():
     # Asegúrate de que el nombre coincida con tu archivo Excel
-    df = pd.read_excel('prueba.xlsx')
+    df = pd.read_excel('invitados.xlsx')
     # Limpiamos la columna Codigo
-    df['Codigo'] = df['Codigo'].astype(str).str.strip().str.replace('.0', '', regex=False)
+    df['ID EMP'] = df['ID EMP'].astype(str).str.strip().str.replace('.0', '', regex=False)
     return df
 
 # Cargar el Excel
 try:
-    df = pd.read_excel("prueba.xlsx")
+    df = pd.read_excel("invitados.xlsx")
     
     # El buscador
     id_empleado = st.text_input("Ingresa tu ID de Empleado")
 
     if id_empleado:
         # Buscamos el ID (convertimos a string para evitar errores de tipo)
-        resultado = df[df['Codigo'].astype(str) == id_empleado]
+        resultado = df[df['ID EMP'].astype(str) == id_empleado]
 
         if not resultado.empty:
-            nombre = resultado.iloc[0]['Persona']
+            nombre = resultado.iloc[0]['Invitado']
             mesa = resultado.iloc[0]['Mesa']
             
             # --- Lógica de la Laptop ---
@@ -110,6 +110,7 @@ try:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
