@@ -55,23 +55,29 @@ def cargar_datos():
 try:
     df = cargar_datos()
 
-    # Input del usuario
-    carnet_input = st.text_input("ID EMP:").strip()
+   nombre = resultado.iloc[0]['Persona']
+    mesa = resultado.iloc[0]['Mesa']
+    
+    # 1. Tu lista de códigos (ajústalos aquí)
+    codigos_laptop = ["821", "97392", "53532"] 
+    
+    # Pasamos el carnet a texto para que la comparación sea exacta
+    carnet_actual = str(resultado.iloc[0]['Codigo']) 
 
-    if carnet_input:
-        # Buscar en el DataFrame
-        resultado = df[df['Codigo'] == carnet_input]
-        
-        if not resultado.empty:
-            nombre = resultado.iloc[0]['Persona']
-            mesa = resultado.iloc[0]['Mesa']
-            st.success(f"Hola **{nombre}**, tu mesa asignada es la: **{mesa}**")
-        else:
-            st.error("⚠️ Carnet no encontrado. Revisa el número.")
+    st.markdown("---")
+    # Usamos la clase de CSS que creamos antes para el nombre
+    st.markdown(f'<p class="titulo-pro">Hola, {nombre}</p>', unsafe_allow_html=True)
+
+    # 2. La lógica que decide qué mensaje mostrar
+    if carnet_actual in codigos_laptop:
+        st.info(f"Tu mesa asignada es la **{mesa}** y recuerda que **debes traer tu computadora**.")
+    else:
+        st.info(f"Tu mesa asignada es la **{mesa}**.")
 
 except Exception as e:
 
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
