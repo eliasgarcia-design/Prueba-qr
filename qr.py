@@ -67,7 +67,7 @@ try:
             mesa = resultado.iloc[0]['Mesa']
             
             # --- Lógica de la Laptop ---
-            codigos_laptop = ["12345", "67890"] # Pon aquí tus códigos reales
+            codigos_laptop = ["821", "97392", "53532"] # Pon aquí tus códigos reales
             
             st.markdown("---")
             st.markdown(f"### Hola, {nombre}")
@@ -81,6 +81,7 @@ try:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
