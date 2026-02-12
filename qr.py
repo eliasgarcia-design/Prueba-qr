@@ -53,36 +53,33 @@ def cargar_datos():
 
 # Cargar el Excel
 try:
-    df = cargar_datos()
-
+    df = pd.read_excel("prueba.xlsx")
+    
+    # El buscador
     id_empleado = st.text_input("Ingresa tu ID de Empleado")
 
-# 2. Solo hacemos la búsqueda si el usuario escribió algo
-if id_empleado:
-    # Aquí es donde se crea la variable 'resultado'
-    resultado = df[df['Codigo'].astype(str) == id_empleado]
-    
-    nombre = resultado.iloc[0]['Persona']
-    mesa = resultado.iloc[0]['Mesa']
-    
-    # 1. Tu lista de códigos (ajústalos aquí)
-    codigos_laptop = ["821", "97392", "53532"] 
-    
-    # Pasamos el carnet a texto para que la comparación sea exacta
-    carnet_actual = str(resultado.iloc[0]['Codigo']) 
+    if id_empleado:
+        # Buscamos el ID (convertimos a string para evitar errores de tipo)
+        resultado = df[df['Codigo'].astype(str) == id_empleado]
 
-    st.markdown("---")
-    # Usamos la clase de CSS que creamos antes para el nombre
-    st.markdown(f'<p class="titulo-pro">Hola, {nombre}</p>', unsafe_allow_html=True)
-
-    # 2. La lógica que decide qué mensaje mostrar
-    if carnet_actual in codigos_laptop:
-        st.info(f"Tu mesa asignada es la **{mesa}** y recuerda que **debes traer tu computadora**.")
-    else:
-        st.info(f"Tu mesa asignada es la **{mesa}**.")
+        if not resultado.empty:
+            nombre = resultado.iloc[0]['Persona']
+            mesa = resultado.iloc[0]['Mesa']
+            
+            # --- Lógica de la Laptop ---
+            codigos_laptop = ["12345", "67890"] # Pon aquí tus códigos reales
+            
+            st.markdown("---")
+            st.markdown(f"### Hola, {nombre}")
+            
+            if id_empleado in codigos_laptop:
+                st.info(f"Tu mesa asignada es la **{mesa}** y recuerda que **debes traer tu computadora**.")
+            else:
+                st.info(f"Tu mesa asignada es la **{mesa}**.")
+        else:
+            st.error("ID no encontrado. Por favor, verifica e intenta de nuevo.")
 
 except Exception as e:
-
     st.error(f"Error al cargar la base de datos: {e}")
 
 
