@@ -96,7 +96,7 @@ try:
             mesa = resultado.iloc[0]['Mesa']
             
             # --- Lógica de la Laptop ---
-            codigos_laptop = ["821", "97392", "53532"] # Pon aquí tus códigos reales
+            codigos_laptop = ["E08608", "E09429", "E05049", "E04292", "E06497", "E07746", "E03384", "E01169", "E09134", "E02067", "E02827","E06405"] # Pon aquí tus códigos reales
             
             st.markdown("---")
             st.markdown(f"### Hola, {nombre}")
@@ -110,6 +110,7 @@ try:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
