@@ -85,7 +85,7 @@ try:
     df = pd.read_excel("invitados prueba.xlsx")
     
     # El buscador
-    id_empleado = st.text_input("Ingresa tu ID de Empleado")
+    id_empleado = st.text_input("Ingresa tu ID de Empleado (EXXXXX)")
 
     if id_empleado:
         # Buscamos el ID (convertimos a string para evitar errores de tipo)
@@ -110,6 +110,7 @@ try:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
