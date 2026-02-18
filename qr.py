@@ -87,6 +87,10 @@ try:
     # El buscador
     id_empleado = st.text_input("Ingresa tu ID de Empleado (EXXXXX)")
 
+if not id_empleado:
+    st.warning("Por favor, ingresa tu código para continuar.")
+    st.stop()
+
     if id_empleado:
         # Buscamos el ID (convertimos a string para evitar errores de tipo)
         resultado = df[df['ID EMP'].astype(str) == id_empleado]
@@ -110,6 +114,7 @@ try:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
