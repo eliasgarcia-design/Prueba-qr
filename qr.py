@@ -102,7 +102,7 @@ try:
             st.markdown(f"### Hola, {nombre}")
             
             if id_empleado in codigos_laptop:
-                st.info(f"Tu mesa asignada es la **{mesa}**. Debes **Llevar tu computadora** al debate.")
+                st.info(f"Tu mesa asignada es la **{mesa}**. Por favor **Llevar tu computadora** al debate.")
             else:
                 st.info(f"Tu mesa asignada es la **{mesa}**.")
         else:
@@ -110,6 +110,7 @@ try:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
