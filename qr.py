@@ -6,6 +6,7 @@ st.set_page_config(
     page_title="Buscador de Mesas Corporativo",
     page_icon="bluelogo.png", # Puedes poner un link a un favicon .png si prefieres
     layout="centered")
+@st.cache_data
 def get_base64(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
@@ -114,6 +115,7 @@ try:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
