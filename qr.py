@@ -87,7 +87,7 @@ try:
     # El buscador
     id_empleado = st.text_input("Ingresa tu ID de Empleado (EXXXXX)")
 
-if not id_empleado:
+    if not id_empleado:
     st.warning("Por favor, ingresa tu código para continuar.")
     st.stop()
 
@@ -114,6 +114,7 @@ if not id_empleado:
 
 except Exception as e:
     st.error(f"Error al cargar la base de datos: {e}")
+
 
 
 
